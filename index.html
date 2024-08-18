@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPlayer播放HLS</title>
+    <!-- 引入DPlayer样式 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css">
+  <style>
+        /* 设置DPlayer容器的默认大小 */
+        #dplayer {
+            width: 1600px;
+            height: 900px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 创建DPlayer容器 -->
+    <div id="dplayer"></div>
+
+    <!-- 引入hls.js库 -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>
+    <!-- 引入DPlayer库 -->
+    <script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+
+    <script>
+        // 初始化DPlayer
+        const dp = new DPlayer({
+            container: document.getElementById('dplayer'),
+            video: {
+                url: 'https://raw.githubusercontent.com/Rogetta/LSRV/main/main.m3u8', // 替换为你的HLS视频流地址
+                type: 'hls'
+            },
+            pluginOptions: {
+                hls: {
+                    hlsjsConfig: {
+                        // hls.js的配置项，可以根据需要进行配置
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
